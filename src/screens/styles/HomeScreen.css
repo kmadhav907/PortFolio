@@ -1,0 +1,35 @@
+.homeScreenCard {
+  z-index: 1;
+  position: relative;
+}
+
+.welcomeText {
+  position: absolute;
+  background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 10vh;
+  left: 10vh;
+  width: 40vw;
+  height: 20vh;
+  border-radius: 1vh;
+  font-size: 1.6em;
+
+  -webkit-box-shadow: 10px 10px 14px 11px rgba(0, 0, 0, 0.52);
+  -moz-box-shadow: 10px 10px 14px 11px rgba(0, 0, 0, 0.52);
+  box-shadow: 10px 10px 14px 11px rgba(0, 0, 0, 0.52);
+}
+@media (max-width: 1000px) {
+  .welcomeText {
+    left: 8vh;
+    width: 65vh;
+  }
+}
+@media (max-width: 700px) {
+  .welcomeText {
+    left: 5vh;
+    width: 80vw;
+    font-size: 1.5em;
+  }
+}

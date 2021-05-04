@@ -1,0 +1,124 @@
+.navBar {
+  display: flex;
+  font-size: 1.5em;
+  justify-content: space-between;
+  align-items: center;
+  background-image: linear-gradient(
+    180deg,
+    rgba(155, 254, 23, 1) 45.5%,
+    rgba(36, 243, 8, 1) 97.9%
+  );
+  padding: 0;
+  margin: 0;
+  height: 7vh;
+  width: 100%;
+  border-bottom: 0.5vh solid rgb(2, 87, 2);
+  z-index: 10;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.34),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+}
+
+.navBarBrand {
+  background-image: linear-gradient(
+    to right,
+    #000000 0%,
+    #434343 51%,
+    #000000 100%
+  );
+}
+.navBarBrand {
+  height: 100%;
+  width: 20vw;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navBarBrand:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+.navBarLinks {
+  display: flex;
+  align-items: center;
+}
+.navLinks {
+  text-decoration: none;
+  color: inherit;
+}
+
+.navLinkContainer {
+  background-image: linear-gradient(
+    to right,
+    #00c6ff 0%,
+    #0072ff 51%,
+    #00c6ff 100%
+  );
+}
+.navLinkContainer {
+  margin: 1vh;
+  width: 9vw;
+  font-size: 0.9em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.8s;
+
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 3vh #eee;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 10px 6px -6px #777;
+  -moz-box-shadow: 0 10px 6px -6px #777;
+  box-shadow: 0 10px 6px -6px #777;
+}
+
+.navLinkContainer:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+@media (max-width: 1300px) {
+  .navLinks {
+    font-size: 0.8em;
+  }
+  .navBarBrand {
+    width: 27vw;
+  }
+}
+@media (max-width: 1000px) {
+  .navLinks {
+    font-size: 0.7em;
+  }
+  .navBarBrand {
+    width: 32vw;
+  }
+  .navLinkContainer {
+    width: 12vw;
+  }
+}
+
+@media (max-width: 700px) {
+  .navLinks {
+    font-size: 0.55em;
+  }
+  .navBarBrand {
+    width: 35vw;
+  }
+  .navBarLinks {
+    display: none;
+  }
+}
