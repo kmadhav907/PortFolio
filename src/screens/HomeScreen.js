@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import axios from 'axios';
 import Typewriter from 'typewriter-effect';
 import { motion } from 'framer-motion';
@@ -32,84 +32,166 @@ const profileVariants = {
   }
 };
 
-const HomeScreen = () => {
-  const [galleryItems, setGalleryItems] = useState(undefined);
-  const [loading, setLoading] = useState(false);
+// const HomeScreen = () => {
+//   const [galleryItems, setGalleryItems] = useState(undefined);
+//   const [loading, setLoading] = useState(false);
 
-  const getData = () => {
+//   const getData = () => {
+//     axios
+//       .get(`https://picsum.photos/v2/list?limit=6`, {})
+//       .then((res) => {
+//         const data = res.data;
+//         // const img = data.map((m) => <img src={m.download_url} alt='' />);
+//         const img = data.map((m) => m.download_url);
+//         setGalleryItems(img);
+//         console.log('Data is generated');
+//         console.log(img);
+//       })
+//       .catch((error) => {
+//         console.log(error);
+//       });
+//   };
+//   useEffect(() => {
+//     setLoading(true);
+//     setTimeout(() => {
+//       getData();
+//       setLoading(false);
+//     }, 2000);
+//   }, [loading, galleryItems]);
+
+//   return (
+//     <>
+//       {loading && !galleryItems ? (
+//         <Loader />
+//       ) : (
+//         <div className='homeScreen'>
+//           <div className='homeScreenCard'>
+//             <motion.div
+//               className='welcomeText'
+//               animate={{ rotate: 360, scale: 1.2 }}
+//               transition={{ duration: 0.8 }}
+//             >
+//               <Typewriter
+//                 options={{
+//                   loop: true,
+//                   strings: myProfile,
+//                   autoStart: true
+//                 }}
+//               />
+//             </motion.div>
+//           </div>
+//           <motion.div
+//             variants={imageVariants}
+//             initial='hidden'
+//             animate='visible'
+//           >
+//             <div className='imageCard'></div>
+//           </motion.div>
+//           <motion.div
+//             variants={profileVariants}
+//             initial='hidden'
+//             animate='visible'
+//             className='profileCaresol'
+//           >
+//             <AliceCarousel
+//               autoPlayInterval={2000}
+//               autoPlayDirection='rtl'
+//               autoPlay={true}
+//               fadeOutAnimation={true}
+//               mouseTrackingEnabled={true}
+//             >
+//               {galleryItems &&
+//                 galleryItems.map((item) => {
+//                   return <img src={item} alt='' className='imageContainer' />;
+//                 })}
+//             </AliceCarousel>
+//           </motion.div>
+//         </div>
+//       )}
+//     </>
+//   );
+// };
+class HomeScreen extends React.Component {
+  state = {
+    error: null,
+    galleryItems: null,
+    loading: false
+  };
+  componentDidMount() {
+    this.setState({ loading: true });
+    this._isMounted = true;
     axios
       .get(`https://picsum.photos/v2/list?limit=6`, {})
       .then((res) => {
         const data = res.data;
         // const img = data.map((m) => <img src={m.download_url} alt='' />);
         const img = data.map((m) => m.download_url);
-        setGalleryItems(img);
-        console.log('Data is generated');
-        console.log(img);
+        this.setState({ galleryItems: img });
+        setTimeout(() => {
+          this.setState({ loading: false });
+        }, 1000);
       })
-      .catch((error) => {
-        console.log(error);
+      .catch((err) => {
+        this.setState({ error: 'Error Failed to get data' });
       });
-  };
-  useEffect(() => {
-    setLoading(true);
-    setTimeout(() => {
-      getData();
-      setLoading(false);
-    }, 2000);
-  }, [loading, galleryItems]);
-
-  return (
-    <>
-      {loading && !galleryItems ? (
-        <Loader />
-      ) : (
-        <div className='homeScreen'>
-          <div className='homeScreenCard'>
+  }
+  render() {
+    const { loading, galleryItems, error } = this.state;
+    if (error) {
+      return <>{error}</>;
+    }
+    return (
+      <>
+        {loading && !error ? (
+          <Loader />
+        ) : (
+          <div className='homeScreen'>
+            <div className='homeScreenCard'>
+              <motion.div
+                className='welcomeText'
+                animate={{ rotate: 360, scale: 1.2 }}
+                transition={{ duration: 0.8 }}
+              >
+                <Typewriter
+                  options={{
+                    loop: true,
+                    strings: myProfile,
+                    autoStart: true
+                  }}
+                />
+              </motion.div>
+            </div>
             <motion.div
-              className='welcomeText'
-              animate={{ rotate: 360, scale: 1.2 }}
-              transition={{ duration: 0.8 }}
+              variants={imageVariants}
+              initial='hidden'
+              animate='visible'
             >
-              <Typewriter
-                options={{
-                  loop: true,
-                  strings: myProfile,
-                  autoStart: true
-                }}
-              />
+              <div className='imageCard'></div>
+            </motion.div>
+            <motion.div
+              variants={profileVariants}
+              initial='hidden'
+              animate='visible'
+              className='profileCaresol'
+            >
+              <AliceCarousel
+                autoPlayInterval={2000}
+                autoPlayDirection='rtl'
+                autoPlay={true}
+                fadeOutAnimation={true}
+                mouseTrackingEnabled={true}
+              >
+                {galleryItems &&
+                  galleryItems.map((item) => {
+                    return <img src={item} alt='' className='imageContainer' />;
+                  })}
+              </AliceCarousel>
             </motion.div>
           </div>
-          <motion.div
-            variants={imageVariants}
-            initial='hidden'
-            animate='visible'
-          >
-            <div className='imageCard'></div>
-          </motion.div>
-          <motion.div
-            variants={profileVariants}
-            initial='hidden'
-            animate='visible'
-            className='profileCaresol'
-          >
-            <AliceCarousel
-              autoPlayInterval={2000}
-              autoPlayDirection='rtl'
-              autoPlay={true}
-              fadeOutAnimation={true}
-              mouseTrackingEnabled={true}
-            >
-              {galleryItems &&
-                galleryItems.map((item) => {
-                  return <img src={item} alt='' className='imageContainer' />;
-                })}
-            </AliceCarousel>
-          </motion.div>
-        </div>
-      )}
-    </>
-  );
-};
+        )}
+      </>
+    );
+  }
+}
 
 export default HomeScreen;
