@@ -86,7 +86,27 @@ textarea {
   color: #fff;
   text-decoration: none;
 }
+.myDetails {
+  position: absolute;
+  right: 5vh;
+  top: 4vh;
+  margin: 0 1vh;
+  height: 83%;
+  flex: 1;
+  display: flex;
 
+  justify-content: space-around;
+  flex-direction: column;
+}
+.myDetailsItem {
+  display: inline;
+  padding: 0 1vh;
+  border-bottom: 0.1vh solid rgba(0, 0, 0, 0.55);
+}
+.myDetailsItem > a {
+  text-decoration: none;
+  color: rgb(255, 0, 0);
+}
 @media (max-width: 1200px) {
   .contactFormCard {
     width: 70vw;
@@ -101,6 +121,11 @@ textarea {
   .inputContainer > input,
   textarea {
     width: 40vh;
+  }
+}
+@media (max-width: 1000px) {
+  .myDetails {
+    display: none;
   }
 }
 @media (max-width: 850px) {
