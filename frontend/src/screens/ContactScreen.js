@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { motion } from 'framer-motion';
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 import Loader from '../components/Loader';
@@ -24,7 +25,7 @@ const ContactScreen = () => {
       });
     setTimeout(() => {
       setLoading(false);
-      history.push('/');
+      error ? history.push('/') : history.push('/contacts');
     }, 1000);
   };
   const resetForm = () => {
@@ -42,7 +43,11 @@ const ContactScreen = () => {
         <Loader message={dispMessage} />
       ) : (
         <div className='contactForm'>
-          <div className='contactFormCard'>
+          <motion.div
+            className='contactFormCard'
+            whileHover={{ scale: 1.1, transition: { duration: 1 } }}
+            whileTap={{ scale: 0.9, transition: { duration: 1 } }}
+          >
             <form className='contact-form' onSubmit={onSubmitHandler}>
               <div className='inputContainer' style={{ fontSize: '1.1em' }}>
                 Contact Me <i className='fas fa-comment-dots'></i>
@@ -77,7 +82,7 @@ const ContactScreen = () => {
                 SUBMIT
               </button>
             </form>
-          </div>
+          </motion.div>
         </div>
       )}
     </>
