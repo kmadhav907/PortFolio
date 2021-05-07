@@ -33,6 +33,11 @@
 .loader:after {
   left: 1.5em;
 }
+.loaderText {
+  color: white;
+  font-size: 1.3em;
+  font-style: italic;
+}
 @-webkit-keyframes load1 {
   0%,
   80%,
