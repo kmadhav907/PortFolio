@@ -1,0 +1,103 @@
+.homeScreen {
+  position: relative;
+}
+.homeScreenCard {
+  z-index: 1;
+  position: relative;
+}
+
+.welcomeText {
+  position: absolute;
+  background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 8vh;
+  left: 10vh;
+  width: 40vw;
+  height: 20vh;
+  border-radius: 1vh;
+  font-size: 1.6em;
+
+  -webkit-box-shadow: 10px 10px 14px 11px rgba(0, 0, 0, 0.52);
+  -moz-box-shadow: 10px 10px 14px 11px rgba(0, 0, 0, 0.52);
+  box-shadow: 10px 10px 14px 11px rgba(0, 0, 0, 0.52);
+}
+.imageCard {
+  position: absolute;
+  height: 70vh;
+  width: 30vw;
+  z-index: 1;
+  top: 8vh;
+  right: 5vw;
+  background: greenyellow;
+  -webkit-box-shadow: 18px 9px 18px 1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 18px 9px 18px 1px rgba(0, 0, 0, 0.75);
+  box-shadow: 18px 9px 18px 1px rgba(0, 0, 0, 0.75);
+}
+.profileCaresol {
+  position: absolute;
+  top: 35vh;
+  z-index: 1;
+  left: 1vw;
+  width: 55vw;
+  height: 40vh;
+
+  background-image: linear-gradient(
+    67.2deg,
+    rgba(37, 208, 199, 1) -7.5%,
+    rgba(165, 90, 240, 1) 62.7%
+  );
+  -webkit-box-shadow: 34px 15px 60px -8px rgba(0, 0, 0, 0.33);
+  -moz-box-shadow: 34px 15px 60px -8px rgba(0, 0, 0, 0.33);
+  box-shadow: 34px 15px 60px -8px rgba(0, 0, 0, 0.33);
+  padding: 1vh;
+  padding-left: 0;
+  border: 0.1vh solid blue;
+  border-radius: 2vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.imageContainer {
+  height: 24vh;
+  width: 53vw;
+  object-fit: cover;
+  margin: 2vh;
+}
+@media (max-width: 1000px) {
+  .welcomeText {
+    left: 7.5vh;
+    width: 50vw;
+    font-size: 1.4em;
+  }
+  .profileCaresol {
+    top: 42vh;
+    width: 60vw;
+    font-size: 0.9em;
+  }
+  .imageCard {
+    right: 2vw;
+    height: 63vh;
+    width: 32vw;
+  }
+}
+
+@media (max-width: 750px) {
+  .welcomeText {
+    top: 4vh;
+    left: 5vh;
+    width: 78vw;
+    font-size: 1.2em;
+  }
+  .imageCard {
+    top: 32vh;
+    left: 20vw;
+    height: 42vh;
+    width: 60vw;
+    min-width: 45vw;
+  }
+  .profileCaresol {
+    display: none;
+  }
+}
