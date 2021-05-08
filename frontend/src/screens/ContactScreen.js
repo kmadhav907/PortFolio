@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 import Loader from '../components/Loader';
 import './styles/ContactScreen.css';
+import Error from '../components/Error';
 const ContactScreen = () => {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
@@ -25,12 +26,11 @@ const ContactScreen = () => {
       });
     setTimeout(() => {
       setLoading(false);
-      error ? history.push('/contacts') : history.push('/');
     }, 1000);
   };
 
   if (error) {
-    return <h1>{error}</h1>;
+    return <Error message={error} />;
   }
 
   return (
