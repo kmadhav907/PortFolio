@@ -17,6 +17,7 @@ function App() {
         <Route path='/' component={HomeScreen} exact />
         <Route path='/about' component={AboutScreen} />
         <Route path='/contacts' component={ContactScreen} />
+
         <Footer />
       </Router>
     </div>
