@@ -24,7 +24,7 @@ export const createMessage = asyncHandler(async (req, res) => {
         name: newmessage.name
       });
       const mailOptions = {
-        from: 'maddybhat907@gmail.com',
+        from: 'kmadhav.webapp@gmail.com',
         to: email,
         subject: 'Thanks for Contacting me!!',
         html:
