@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router';
 import Loader from '../components/Loader';
 import './styles/ContactScreen.css';
@@ -27,6 +27,10 @@ const ContactScreen = () => {
     setTimeout(() => {
       setLoading(false);
     }, 1000);
+
+    if (!error) {
+      history.push('/');
+    }
   };
 
   if (error) {
