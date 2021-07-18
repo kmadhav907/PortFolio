@@ -1,6 +1,7 @@
 import React from 'react';
 import './styles/AboutScreen.css';
 import { motion } from 'framer-motion';
+import gifImage from '../assets/coding.gif';
 const aboutMeVariants = {
   hidden: { opacity: 0, scale: 0 },
   visible: {
@@ -96,7 +97,15 @@ const AboutScreen = () => {
           software={'Flutter'}
         />
       </motion.div>
-      <div></div>
+      <motion.div
+        variants={softwareVariants}
+        initial='hidden'
+        animate='visible'
+        className='software-container'
+        className='gifContainer'
+      >
+        <img src={gifImage} className='gifImage' alt='coding person' />
+      </motion.div>
       <div></div>
     </div>
   );
