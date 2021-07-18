@@ -48,6 +48,27 @@ const NavBar = () => {
           </Link>
         </motion.div>
       </div>
+      <div className='dropdown'>
+        <button className='dropbtn'>
+          <i className='fas fa-map-marked icon'></i>
+        </button>
+        <div className='dropdown-content'>
+          <Link to='/'>
+            <i className='fas fa-igloo icon-contained'></i>&nbsp;&nbsp;Home
+          </Link>
+          <Link to='/about'>
+            <i className='fas fa-cheese icon-contained'></i>&nbsp;&nbsp;About Me
+          </Link>
+          <Link to='/contacts'>
+            <i className='fas fa-file-contract icon-contained'></i>
+            &nbsp;&nbsp;Contact Me
+          </Link>
+          <Link to='/contacts'>
+            <i class='fas fa-terminal icon-contained'></i>
+            &nbsp;&nbsp;Projects
+          </Link>
+        </div>
+      </div>
     </nav>
   );
 };
