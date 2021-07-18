@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import React, { useState, useEffect } from 'react';
+
+import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 import Loader from '../components/Loader';
 import './styles/ContactScreen.css';
@@ -14,6 +14,7 @@ const ContactScreen = () => {
   const [error, setError] = useState('');
   const [dispMessage, setDispMessage] = useState('');
   const history = useHistory();
+
   const onSubmitHandler = (e) => {
     e.preventDefault();
     setDispMessage('Thank you for Submitting the form');
@@ -27,10 +28,7 @@ const ContactScreen = () => {
     setTimeout(() => {
       setLoading(false);
     }, 1000);
-
-    if (!error) {
-      history.push('/');
-    }
+    history.push('/');
   };
 
   if (error) {
