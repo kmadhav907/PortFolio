@@ -20,7 +20,7 @@ const ContactScreen = () => {
     setDispMessage('Thank you for Submitting the form');
     setLoading(true);
     axios
-      .post('http://localhost:5000/api/messages', { email, name, message })
+      .post('/api/messages', { email, name, message })
       .then((response) => {})
       .catch((error) => {
         setError(error.message);
