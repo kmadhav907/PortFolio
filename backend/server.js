@@ -13,6 +13,7 @@ app.use(express.json());
 connectDB();
 
 app.use('/api/messages', messageRoutes);
+
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '/frontend/build')));
 

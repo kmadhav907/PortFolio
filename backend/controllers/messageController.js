@@ -19,10 +19,6 @@ export const createMessage = asyncHandler(async (req, res) => {
       message
     });
     if (newmessage) {
-      res.status(201).json({
-        _id: newmessage.id,
-        name: newmessage.name
-      });
       const mailOptions = {
         from: 'kmadhav.webapp@gmail.com',
         to: email,
@@ -35,10 +31,14 @@ export const createMessage = asyncHandler(async (req, res) => {
       transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
           res.status(400);
-          throw new Error('SMTP ERROR');
+          // throw new Error('SMTP ERROR');
         } else {
           console.log('Email sent:' + info.response);
         }
+      });
+      res.status(201).json({
+        _id: newmessage.id,
+        name: newmessage.name
       });
     } else {
       res.status(400);
