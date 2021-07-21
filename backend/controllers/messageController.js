@@ -19,10 +19,6 @@ export const createMessage = asyncHandler(async (req, res) => {
       message
     });
     if (newmessage) {
-      res.status(201).json({
-        _id: newmessage.id,
-        name: newmessage.name
-      });
       const mailOptions = {
         from: 'kmadhav.webapp@gmail.com',
         to: email,
@@ -39,6 +35,10 @@ export const createMessage = asyncHandler(async (req, res) => {
         } else {
           console.log('Email sent:' + info.response);
         }
+      });
+      res.status(201).json({
+        _id: newmessage.id,
+        name: newmessage.name
       });
     } else {
       res.status(400);
