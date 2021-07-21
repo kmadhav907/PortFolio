@@ -35,7 +35,7 @@ export const createMessage = asyncHandler(async (req, res) => {
       transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
           res.status(400);
-          throw new Error('SMTP ERROR');
+          // throw new Error('SMTP ERROR');
         } else {
           console.log('Email sent:' + info.response);
         }
